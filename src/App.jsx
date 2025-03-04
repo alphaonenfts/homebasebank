@@ -7,7 +7,6 @@ const App = () => {
     <div>
       <Form1/>
     </div>
-    
 
   )
 }
