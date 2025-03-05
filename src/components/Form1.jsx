@@ -7,9 +7,29 @@ export default function Form1() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
+  // const onSubmit = (data) => {
+  //   console.log("Form Data:", data);
+  // };
+
+  const onSubmit = async (data) => {
+    console.log("Submitting Form Data:", data);
+  
+    try {
+      const response = await fetch("https://mc-1-vf3z.onrender.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+      alert(result.message);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
+  
 
   return (
     <div className="form-container">
@@ -34,7 +54,7 @@ export default function Form1() {
           <label>State of Origin</label>
           <input type="text" {...register("stateOfOrigin", { required: "State of Origin is required" })} />
           {errors.stateOfOrigin && <p className="error">{errors.stateOfOrigin.message}</p>}
-        </div>
+        </div> 
 
         <div className="form-group">
           <label>Residential Address</label>
