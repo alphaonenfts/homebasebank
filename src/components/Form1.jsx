@@ -19,6 +19,7 @@ export default function Form1() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(data),
       });
@@ -26,7 +27,7 @@ export default function Form1() {
       const result = await response.json();
       alert(result.message);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting form", error);
     }
   };
   
