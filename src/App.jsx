@@ -7,9 +7,9 @@ import Form2 from './components/Form2'
 const App = () => {
   return (
     <div>
-      {/* <Form1/> */}
+      <Form1/>
       {/* <Table /> */}
-      <Form2/>
+      {/* <Form2/> */}
     </div>
 
   )
