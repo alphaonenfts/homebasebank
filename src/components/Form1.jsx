@@ -12,8 +12,6 @@ export default function Form1() {
   // };
 
   const onSubmit = async (data) => {
-    console.log("Submitting Form Data:", data);
-  
     try {
       const response = await fetch("https://hbase.onrender.com/submit-form", {
         method: "POST",
@@ -24,9 +22,11 @@ export default function Form1() {
       });
   
       const result = await response.json();
-      alert(result.message);
+      console.log("Success:", result);
+      alert("Form submitted successfully!");
     } catch (error) {
-      console.error("Error submitting form", error);
+      console.error("Error submitting form:", error);
+      alert("Submission failed. Please try again.");
     }
   };
   
@@ -152,7 +152,7 @@ export default function Form1() {
         {/* end of form 1 */}
 
         {/* form 2 */}
-        {/* <h3>Next of Kin</h3>
+        <h3>Next of Kin</h3>
 
         <div className="form-group">
           <label>Name</label>
@@ -191,10 +191,10 @@ export default function Form1() {
         <div className="form-group">
           <label>Office Address</label>
           <input type="text" {...register("nextOfKinOfficeAddress")} />
-        </div> */}
+        </div>
 
         {/* Children Section */}
-        {/* <h3>Children Details</h3>
+        <h3>Children Details</h3>
 
         <div className="form-group">
           <label>How many children do you have?</label>
@@ -209,10 +209,10 @@ export default function Form1() {
               <input type="number" placeholder="Age" {...register(`child${index + 1}Age`)} />
             </div>
           </div>
-        ))} */}
+        ))}
 
         {/* Referees Section */}
-        {/* <h3>Referees</h3>
+        <h3>Referees</h3>
 
         {[...Array(3)].map((_, index) => (
           <div key={index} className="form-group">
@@ -226,7 +226,7 @@ export default function Form1() {
           </div>
         ))}
 
-        <p className="note">One of the referees <strong>MUST</strong> be from the Human Resource Department of your last place of employment.</p> */}
+        <p className="note">One of the referees <strong>MUST</strong> be from the Human Resource Department of your last place of employment.</p>
 
         {/* End of form 2 */}
 
